@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modal</title>
+
+        <link rel="stylesheet" href="co-modal-login.css">
+    </head>
+    <body>
+        <p data-modal="open">Abrir modal</p>
+
+        <!--Loading-->
+        <div class="e-overlay-loader">
+            <div class="e-loading"></div>
+        </div>
+
+        <!--Login-->
+        <!--Modal Inicial-->
+        <div class="e-co-modal-login e-co-modal-login--email-password" data-modal="modal">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Login</h1>
+                        <span class="e-co-modal-login__sub-title">Entrar com email e senha</span>
+
+                        <form id="form-email-acess" class="e-co-modal-login__form">
+                            <input type="email" name="email" placeholder="Email" id="useremail" class="e-co-modal__form-input">
+                            <input type="password" name="password" placeholder="Senha" id="userpassword" class="e-co-modal__form-input">
+                            <a href="#" id="forgotpassword" class="e-co-modal-login__form-link">Esqueci minha senha</a>
+                            
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="submit" class="button button--login">Entrar</button>
+                                <button type="button" class="btn-register button button--register">Cadastre-se</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <span class="e-co-modal-login__separation"></span>
+
+                    <div class="e-co-modal-login__actions">
+                        <button type="button" class="button button--google">Entrar com Google</button>
+                        <button type="button" class="button button--facebook">Entrar com Facebook</button>
+                        <button type="button" class="email-acess button button--key">Receber chave de acesso rápido por email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!----->
+
+        <!--Recuperação de senha-->
+        <!--Fluxo 1: Modal de inserir email-->
+        <div class="e-co-modal-login e-co-modal-login--password-recovery" data-modal="passwordrecovery">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo">
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Por favor informe seu email</h1>
+
+                        <form id="form-password-recovery" class="e-co-modal-login__form">
+                            <input type="email" name="email" placeholder="Ex: jose@email.com" id="emailpasswordrecovery" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-password-recovery-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="button-confirm button button--login">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Recuperação de senha-->
+        <!--Fluxo 2: Modal de confirmar senha-->
+        <div class="e-co-modal-login e-co-modal-login--new-password" data-modal="new-password">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Cadastrar nova senha</h1>
+                        <span class="e-co-modal-login__sub-title">
+                            Enviaremos uma chave de validação para seu e-mail
+                        </span>
+
+                        <form id="form-newpassword" class="e-co-modal-login__form">
+                            <p class="e-co-modal-login__form-text">Nova senha</p>
+                            <input type="password" name="password" id="newpassword" class="e-co-modal__form-input">
+
+                            <p class="e-co-modal-login__form-text">Confirmar nova senha</p>
+                            <input type="password" name="password" id="newpasswordconfirm" class="e-co-modal__form-input">
+
+                            <div class="e-co-modal-login__recommendations">
+                                <p>Sua senha deve ter:</p>
+                                <ul>
+                                    <li id="newpassword-caracteres">Mímino de 8 caracteres</li>
+                                    <li id="newpassword-onenumber">1 número</li>
+                                    <li id="newpassword-onelowercase">1 letra minúscula</li>
+                                    <li id="newpassword-oneuppercase">1 letra maiúscula</li>
+                                </ul>
+                            </div>
+
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-new-password-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="btn-new-password button button--login">Cadastrar nova senha</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Recuperação de senha-->
+        <!--Fluxo 3: Modal inserir chave-->
+        <div class="e-co-modal-login e-co-modal-login--new-password-insert-key" data-modal="new-password-insert-key">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Informar chave de acesso</h1>
+                        <span class="e-co-modal-login__sub-title">
+                            Agora é só informar o código recebido em seu email
+                        </span>
+
+                        <form id="form-new-password-insert-key" class="e-co-modal-login__form">
+                            <input type="number" name="number" placeholder="Ex: 025672" id="newpasswordinsertkey" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-new-user-acess-code-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="button button--login">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!----->
+
+        <!--Cadastrar novo usuario-->
+        <!--Fluxo 1: Modal de inserir email-->
+        <div class="e-co-modal-login e-co-modal-login--email-register" data-modal="email-register">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Por favor informe seu email</h1>
+
+                        <form id="form-email-register" class="e-co-modal-login__form">
+                            <input type="email" name="email" placeholder="Ex: jose@email.com" id="useremailregister" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-email-register-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="btn-email-register button button--login">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Cadastrar novo usuario-->
+        <!--Fluxo 2: Modal de inserir senha-->
+        <div class="e-co-modal-login e-co-modal-login--new-user-password" data-modal="new-user-password">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Cadastrar nova senha</h1>
+                        <span class="e-co-modal-login__sub-title">
+                            Enviaremos uma chave de validação para seu e-mail
+                        </span>
+
+                        <form id="form-new-user-password" class="e-co-modal-login__form">
+                            <p class="e-co-modal-login__form-text">Nova senha</p>
+                            <input type="password" name="password" id="newuserpassword" class="e-co-modal__form-input">
+
+                            <p class="e-co-modal-login__form-text">Confirmar nova senha</p>
+                            <input type="password" name="password" id="newuserpasswordconfirm" class="e-co-modal__form-input">
+
+                            <div class="e-co-modal-login__recommendations">
+                                <p>Sua senha deve ter:</p>
+                                <ul>
+                                    <li id="password-caracters">Mímino de 8 caracteres</li>
+                                    <li id="password-one-number">1 número</li>
+                                    <li id="password-one-lowercase">1 letra minúscula</li>
+                                    <li id="password-one-uppercase">1 letra maiúscula</li>
+                                </ul>
+                            </div>
+
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-new-user-password-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="btn-new-user-password button button--login">Cadastrar nova senha</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Cadastrar novo usuario-->
+        <!--Fluxo 3: Modal inserir chave-->
+        <div class="e-co-modal-login e-co-modal-login--new-user-acess-code" data-modal="new-user-acess-code">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Informar chave de acesso</h1>
+                        <span class="e-co-modal-login__sub-title">
+                            Agora é só informar o código recebido em seu email
+                        </span>
+
+                        <form id="form-new-user-acess-code" class="e-co-modal-login__form">
+                            <input type="number" name="number" placeholder="Ex: 025672" id="newuseracesscode" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-new-user-acess-code-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="btn-new-user-acess-code button button--login">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!----->
+
+        <!--Receber chave de acesso rápido por email-->
+        <!--Fluxo 1: Modal de inserir email-->
+        <div class="e-co-modal-login e-co-modal-login--email-acess" data-modal="emailAcess">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Chave de acesso</h1>
+                        <span class="e-co-modal-login__sub-title">Por favor informe seu email</span>
+
+                        <form class="e-co-modal-login__form">
+                            <input type="email" name="email" placeholder="Ex: jose@email.com" id="useremailacess" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-email-acess-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="button-confirm button button--login">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Receber chave de acesso rápido por email-->
+        <!--Fluxo 2: Modal inserir chave-->
+        <div class="e-co-modal-login e-co-modal-login--email-acess-code" data-modal="emailAcessCode">
+            <div class="e-co-modal-login__content">
+
+                <div class="e-co-modal-login__close" data-modal="close">
+                    <img src="/arquivos/e-co-modal-close.png" alt="Botão de Fechar" />
+                </div>
+
+                <div class="e-co-modal-login__main">
+                    <div class="e-co-modal-login__logo">
+                        <img src="/arquivos/modal-logo-cafeorfeu.png" alt="Logo" />
+                    </div>
+
+                    <div class="e-co-modal-login__info">
+                        <h1 class="e-co-modal-login__title">Informar chave de acesso</h1>
+                        <span class="e-co-modal-login__sub-title">
+                            Agora é só informar o código recebido em: 
+                            <span class="e-co-modal-login__email-acess-code"> <!--code--> </span>
+                        </span>
+
+                        <form id="form-emailacesscode" class="e-co-modal-login__form">
+                            <input type="number" name="number" placeholder="Ex: 12345" id="useremailacesscode" class="e-co-modal__form-input">
+                            <div class="e-co-modal-login__form-actions">
+                                <button type="button" class="btn-email-acess-code-back button button--back">
+                                    <img src="/arquivos/arrow-left-co-modal.png" alt="Seta para esquerda" />
+                                    Voltar
+                                </button>
+                                <button type="submit" class="button button--login">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="co-modal-login.js"></script>
+</html>
